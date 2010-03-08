@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project default="setup-hibernate.cfg.xml" name="TEST" basedir=".">
+
+	<!-- This build file is intended to demonstrate the ability to replace properties in a file
+	with an ant script at build time. This could be useful for creating deployables specific to a
+	runtime evironment. This particular example replaces the dialect property in a hibernate.cfg.xml
+	with a valid dialect string based on a user selected input during the build.
+	-->
+
+	<loadproperties srcfile="build.properties" />
+
+	<target name="prompt">
+		<input message="Database: " addproperty="test.input.dialect" defaultvalue="${test.default.dialect}" validargs="${test.build.dialect.options}" />
+	</target>
+
+	<target name="set_conditions">
+		<condition property="test.input.dialect" value="${test.default.dialect}">
+			<not>
+				<isset property="test.input.dialect" />
+			</not>
+		</condition>
+		<condition property="hibernate.dialect" value="${test.hibernate.dialect.db2}">
+			<equals arg1="${test.input.dialect}" arg2="db2" casesensitive="false" />
+		</condition>
+		<condition property="hibernate.dialect" value="${test.hibernate.dialect.sqlserver}">
+			<equals arg1="${test.input.dialect}" arg2="sqlserver" casesensitive="false" />
+		</condition>
+		<condition property="hibernate.dialect" value="${test.hibernate.dialect.oracle}">
+			<equals arg1="${test.input.dialect}" arg2="oracle" casesensitive="false" />
+		</condition>
+	</target>
+
+	<target name="setup-hibernate.cfg.xml" depends="prompt, set_conditions">
+		<property name="target.dir" value="${basedir}/target/AntTest"/>
+		<delete dir="${target.dir}" />
+		<filter token="hibernateDialect" value="${hibernate.dialect}" />
+		<mkdir dir="${target.dir}" />
+		<copy todir="${target.dir}" filtering="true">
+			<fileset dir=".">
+				<include name="hibernate.cfg.xml" />
+			</fileset>
+		</copy>
+	</target>
+</project>
