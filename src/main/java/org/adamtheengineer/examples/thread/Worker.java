@@ -1,17 +1,17 @@
 package org.adamtheengineer.examples.thread;
 
 
-public class UnsafeFinalClassWorker extends Thread {
+public class Worker extends Thread {
 
 	// an instance of the final class
-	private UnsafeFinalClass unsafeFinalClass;
+	private IFinalClass finalclass;
 
 	/**
 	 * Construct this worker thread using an instance of the UnsafeFinalClass
 	 * @param clazz
 	 */
-	public UnsafeFinalClassWorker(UnsafeFinalClass unsafeFinalClass){
-		this.unsafeFinalClass = unsafeFinalClass;
+	public Worker(IFinalClass unsafeFinalClass){
+		this.finalclass = unsafeFinalClass;
 	}
 
 	/**
@@ -21,6 +21,6 @@ public class UnsafeFinalClassWorker extends Thread {
 	@Override
 	public void run(){
 
-			unsafeFinalClass.doSomething();
+		finalclass.doSomething();
 	}
 }

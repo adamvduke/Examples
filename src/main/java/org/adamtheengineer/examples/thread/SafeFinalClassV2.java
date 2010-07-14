@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author adamd
  *
  */
-public final class UnsafeFinalClass implements IFinalClass {
+public final class SafeFinalClassV2 implements IFinalClass {
 
 	/*
 	 * Here we create some shared object for the class
@@ -28,26 +28,35 @@ public final class UnsafeFinalClass implements IFinalClass {
 	public void doSomething() {
 
 		setStartTime();
-		if (list != null) {
+		synchronized (list) {
+			if (list != null) {
 
-			try {
-				// sleep any incoming threads, if there are multiple threads
-				// calling this method
-				// the threads will stack up here after they have checked for
-				// null
-				Thread.sleep(2000);
+				try {
+					// sleep any incoming threads, if there are multiple threads
+					// calling this method
+					// the threads will stack up here after they have checked
+					// for null
+					Thread.sleep(2000);
 
-				// access the shared memory
-				list.clear();
+					// access the shared memory
+					list.clear();
 
-				// here we set the shared object to null
-				list = null;
-			} catch (InterruptedException interruptedException) {
-				throw new RuntimeException("Thread was interrupted.",
-						interruptedException);
-			} catch (NullPointerException nullPointerException) {
-				System.out.println(notThreadSafe);
+					// here we set the shared object to null
+					list = null;
+				} catch (InterruptedException interruptedException) {
+					throw new RuntimeException(
+							"Thread was interrupted in synchronized block",
+							interruptedException);
+				} catch (NullPointerException nullPointerException) {
+					System.out.println(notThreadSafe);
+				}
 			}
+		}
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(
+					"Thread was interrupted in unsynchronized block", e);
 		}
 		System.out.println("Thread " + Thread.currentThread().getId()
 				+ " finished doing hard work from  "

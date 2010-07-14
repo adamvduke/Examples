@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author adamd
  *
  */
-public final class UnsafeFinalClass implements IFinalClass {
+public final class SafeFinalClassV1 implements IFinalClass {
 
 	/*
 	 * Here we create some shared object for the class
@@ -25,7 +25,7 @@ public final class UnsafeFinalClass implements IFinalClass {
 	 * the shared object to null, any subsequent calls to the shared object will
 	 * generate null pointer exceptions
 	 */
-	public void doSomething() {
+	public synchronized void doSomething() {
 
 		setStartTime();
 		if (list != null) {
@@ -43,12 +43,20 @@ public final class UnsafeFinalClass implements IFinalClass {
 				// here we set the shared object to null
 				list = null;
 			} catch (InterruptedException interruptedException) {
-				throw new RuntimeException("Thread was interrupted.",
+				throw new RuntimeException(
+						"Thread was interrupted in synchronized method",
 						interruptedException);
 			} catch (NullPointerException nullPointerException) {
 				System.out.println(notThreadSafe);
 			}
 		}
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(
+					"Thread was interrupted in unsynchronized block", e);
+		}
+
 		System.out.println("Thread " + Thread.currentThread().getId()
 				+ " finished doing hard work from  "
 				+ this.getClass().getSimpleName() + "  "
