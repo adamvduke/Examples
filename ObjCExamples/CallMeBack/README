@@ -1,0 +1,5 @@
+After working with one of the popular Objective-C twitter wrappers, I decided I didn't like
+the pattern of having a single delegate method handle responses from multiple different methods.
+It made more sense to be able to pass a block forward to be used as a callback. So this project 
+is a demo for myself of how to do that, as well as show how to start using GCD for threading
+instead of managing queues yourself.
