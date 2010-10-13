@@ -1,0 +1,5 @@
+During the course of completing the assignments for a version of CS193P, the course materials were updated. Previously, there had been test data provided to avoid rate limiting during development, but when that version of
+the course went by the wayside, apparently so did the test data. So I wrote something quick and dirty that pulls data from the twitter api and saves it to files on disk that you can then serve yourself as test data. 
+
+I made a little effort to stay under the rate limit of 150 requestes/hour, but it's not perfect. USE AT YOUR OWN RISK.
+
