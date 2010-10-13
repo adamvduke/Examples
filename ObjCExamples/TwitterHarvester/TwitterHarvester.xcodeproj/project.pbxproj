@@ -8,14 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		5627C35F1211D1960099C0D6 /* TwitterHarvester.m in Sources */ = {isa = PBXBuildFile; fileRef = 5627C35E1211D1960099C0D6 /* TwitterHarvester.m */; };
-		56CB3DF111AA195A00E6970E /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CB3DEC11AA195A00E6970E /* NSObject+SBJSON.m */; };
-		56CB3DF211AA195A00E6970E /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CB3DEE11AA195A00E6970E /* NSString+SBJSON.m */; };
-		56CB3DF311AA195A00E6970E /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CB3DF011AA195A00E6970E /* SBJSON.m */; };
+		56418D1212656D8200156401 /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56418D0B12656D6700156401 /* JSON.framework */; };
 		56CB3DF811AA198700E6970E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CB3DF611AA198700E6970E /* main.m */; };
 		56CB3E4811AA209600E6970E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CB3E4711AA209600E6970E /* Foundation.framework */; };
 		56CB3EEB11AA226800E6970E /* TwitterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CB3EEA11AA226800E6970E /* TwitterHelper.m */; };
 		8DD76F7C0486A8DE00D96B5E /* TwitterHarvester.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E970290921104C91782 /* TwitterHarvester.1 */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56418D0A12656D6700156401 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56418D0212656D6700156401 /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53D229810C96121600276605 /* JSON.framework */;
+			remoteInfo = JSON;
+		};
+		56418D0C12656D6700156401 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56418D0212656D6700156401 /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53D2298D0C96122A00276605 /* Tests.octest */;
+			remoteInfo = Tests;
+		};
+		56418D0E12656D6700156401 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56418D0212656D6700156401 /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE2BBD800D8B0D3900184787 /* libjson.a */;
+			remoteInfo = libjson;
+		};
+		56418D1012656D6700156401 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56418D0212656D6700156401 /* JSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787 /* libjsontests.octest */;
+			remoteInfo = libjsontests;
+		};
+		56418D1612656DA800156401 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56418D0212656D6700156401 /* JSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53D229800C96121600276605 /* JSON */;
+			remoteInfo = JSON;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8DD76F7B0486A8DE00D96B5E /* CopyFiles */ = {
@@ -33,13 +69,7 @@
 /* Begin PBXFileReference section */
 		5627C35D1211D1960099C0D6 /* TwitterHarvester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterHarvester.h; sourceTree = "<group>"; };
 		5627C35E1211D1960099C0D6 /* TwitterHarvester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterHarvester.m; sourceTree = "<group>"; };
-		56CB3DEA11AA195A00E6970E /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		56CB3DEB11AA195A00E6970E /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		56CB3DEC11AA195A00E6970E /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		56CB3DED11AA195A00E6970E /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		56CB3DEE11AA195A00E6970E /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		56CB3DEF11AA195A00E6970E /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		56CB3DF011AA195A00E6970E /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		56418D0212656D6700156401 /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = "../../../json-framework/JSON.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		56CB3DF511AA198700E6970E /* TwitterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterHelper.h; sourceTree = "<group>"; };
 		56CB3DF611AA198700E6970E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		56CB3E4711AA209600E6970E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56CB3E4811AA209600E6970E /* Foundation.framework in Frameworks */,
+				56418D1212656D8200156401 /* JSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +94,7 @@
 		08FB7794FE84155DC02AAC07 /* TwitterHarvester */ = {
 			isa = PBXGroup;
 			children = (
-				56CB3DE911AA195A00E6970E /* JSON */,
+				56418D0212656D6700156401 /* JSON.xcodeproj */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859E96029091FE04C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
@@ -100,18 +131,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		56CB3DE911AA195A00E6970E /* JSON */ = {
+		56418D0312656D6700156401 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				56CB3DEA11AA195A00E6970E /* JSON.h */,
-				56CB3DEB11AA195A00E6970E /* NSObject+SBJSON.h */,
-				56CB3DEC11AA195A00E6970E /* NSObject+SBJSON.m */,
-				56CB3DED11AA195A00E6970E /* NSString+SBJSON.h */,
-				56CB3DEE11AA195A00E6970E /* NSString+SBJSON.m */,
-				56CB3DEF11AA195A00E6970E /* SBJSON.h */,
-				56CB3DF011AA195A00E6970E /* SBJSON.m */,
+				56418D0B12656D6700156401 /* JSON.framework */,
+				56418D0D12656D6700156401 /* Tests.octest */,
+				56418D0F12656D6700156401 /* libjson.a */,
+				56418D1112656D6700156401 /* libjsontests.octest */,
 			);
-			path = JSON;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C6859E96029091FE04C91782 /* Documentation */ = {
@@ -136,6 +164,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				56418D1712656DA800156401 /* PBXTargetDependency */,
 			);
 			name = TwitterHarvester;
 			productInstallPath = "$(HOME)/bin";
@@ -153,6 +182,12 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 08FB7794FE84155DC02AAC07 /* TwitterHarvester */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 56418D0312656D6700156401 /* Products */;
+					ProjectRef = 56418D0212656D6700156401 /* JSON.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8DD76F740486A8DE00D96B5E /* TwitterHarvester */,
@@ -160,14 +195,42 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		56418D0B12656D6700156401 /* JSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSON.framework;
+			remoteRef = 56418D0A12656D6700156401 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56418D0D12656D6700156401 /* Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.octest;
+			remoteRef = 56418D0C12656D6700156401 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56418D0F12656D6700156401 /* libjson.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjson.a;
+			remoteRef = 56418D0E12656D6700156401 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56418D1112656D6700156401 /* libjsontests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = libjsontests.octest;
+			remoteRef = 56418D1012656D6700156401 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8DD76F760486A8DE00D96B5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56CB3DF111AA195A00E6970E /* NSObject+SBJSON.m in Sources */,
-				56CB3DF211AA195A00E6970E /* NSString+SBJSON.m in Sources */,
-				56CB3DF311AA195A00E6970E /* SBJSON.m in Sources */,
 				56CB3DF811AA198700E6970E /* main.m in Sources */,
 				56CB3EEB11AA226800E6970E /* TwitterHelper.m in Sources */,
 				5627C35F1211D1960099C0D6 /* TwitterHarvester.m in Sources */,
@@ -175,6 +238,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56418D1712656DA800156401 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSON;
+			targetProxy = 56418D1612656DA800156401 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB924808733DCA0010E9CD /* Debug */ = {

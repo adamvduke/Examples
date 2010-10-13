@@ -21,7 +21,7 @@
  */
 
 #import "TwitterHelper.h"
-#import "JSON.h"
+#import <JSON/JSON.h>
 
 @implementation TwitterHelper
 

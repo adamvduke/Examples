@@ -22,7 +22,7 @@
 
 #import "TwitterHarvester.h"
 #import "TwitterHelper.h"
-#import "JSON.h"
+#import <JSON/JSON.h>
 
 @interface TwitterHarvester ()
 

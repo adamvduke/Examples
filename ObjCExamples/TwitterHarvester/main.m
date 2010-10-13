@@ -23,7 +23,7 @@
 #import <Foundation/Foundation.h>
 #import "TwitterHelper.h"
 #import "TwitterHarvester.h"
-#import "JSON.h"
+#import <JSON/JSON.h>
 #import "stdio.h"
 
 int main (int argc, const char * argv[]) {
