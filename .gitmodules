@@ -1,0 +1,3 @@
+[submodule "ObjCExamples/CallMeBack/JSON"]
+	path = ObjCExamples/CallMeBack/JSON
+	url = git@github.com:adamvduke/json-framework.git
