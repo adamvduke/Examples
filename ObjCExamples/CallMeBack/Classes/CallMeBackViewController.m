@@ -1,4 +1,3 @@
-//
 //  CallMeBackViewController.m
 //  CallMeBack
 //
@@ -7,8 +6,13 @@
 //
 
 #import "CallMeBackViewController.h"
+#import "JSON.h"
 
-typedef void(^CallMeBack)(NSString *parsedData);
+#define kRateLimitUrl @"http://api.twitter.com/1/account/rate_limit_status.json"
+#define kFailureMessage @"FAIL!"
+#define kNetworkQueueName "com.callmeback.network"
+
+typedef void(^CallMeBack)(NSString *rawData);
 
 @interface CallMeBackViewController (Private)
 
@@ -29,20 +33,23 @@ typedef void(^CallMeBack)(NSString *parsedData);
 - (IBAction)makeACall
 {
 	// Create an NSURL to get data from
-	NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1/account/rate_limit_status.json"];
+	NSURL *url = [NSURL URLWithString:kRateLimitUrl];
 	
 	// call getURL and pass the block to be executed as a callback
 	// the block just sets the text of the textField to whatever parameter
 	// is passed to the callback
-	[self getURL:url callMeBackWith:^(NSString *parsedData){
-		self.textField.text = parsedData;
+	[self getURL:url callMeBackWith:^(NSString *rawData){
+		NSDictionary *jsonValue = [rawData JSONValue];
+		NSString *key = @"remaining_hits";
+		NSNumber *value = [jsonValue objectForKey:key];
+		self.textField.text = [NSString stringWithFormat:@"%@:%@", key, [value description]];
 	}];
 }
 
 - (void)getURL:(NSURL *)url callMeBackWith:(CallMeBack)doWhatNow
 {
 	// create a queue called com.callmeback.network
-	dispatch_queue_t networkQueue = dispatch_queue_create("com.callmeback.network", NULL);
+	dispatch_queue_t networkQueue = dispatch_queue_create(kNetworkQueueName, NULL);
 	
 	// start the activity indicators
 	[self startProgress];
@@ -53,13 +60,14 @@ typedef void(^CallMeBack)(NSString *parsedData);
 		// create an NSString with the contents of the NSURL
 		// simulate a slow network connection with an NSThread sleepForTimeInterval
 		NSString *raw = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-		[NSThread sleepForTimeInterval:3];
+		[NSThread sleepForTimeInterval:2];
 		if (raw) {
 			
 			// if the NSURL had some content this would be the place to parse it
-			// execute the callback and pass "You iz lady!", then stop the activity indicators
+			// execute the callback and pass the string from the url
+			// then stop the activity indicators
 			dispatch_async(dispatch_get_main_queue(), ^{
-				doWhatNow(@"You iz lady!");
+				doWhatNow(raw);
 				[self stopProgress];
 			});
 		}
@@ -68,7 +76,7 @@ typedef void(^CallMeBack)(NSString *parsedData);
 			// if the NSURL had no content this would be the place to construct some error message
 			// execute the callback and pass "FAIL!", then stop the activity indicators
 			dispatch_async(dispatch_get_main_queue(), ^{
-				doWhatNow(@"FAIL!");
+				doWhatNow(kFailureMessage);
 				[self stopProgress];
 			});
 		}
