@@ -1,4 +1,4 @@
-package org.adamtheengineer.examples.jdbc;
+package com.adamvduke.examples.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

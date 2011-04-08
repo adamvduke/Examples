@@ -1,4 +1,4 @@
-package org.adamtheengineer.examples.recursion;
+package com.adamvduke.examples.recursion;
 public class Palindrome {
 
 	private static String palindrome = "aaabbcbbaaa";

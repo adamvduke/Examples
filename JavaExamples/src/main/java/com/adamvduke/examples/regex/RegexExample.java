@@ -1,4 +1,4 @@
-package org.adamtheengineer.examples.regex;
+package com.adamvduke.examples.regex;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

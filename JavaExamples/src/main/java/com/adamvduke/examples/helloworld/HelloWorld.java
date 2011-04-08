@@ -1,4 +1,4 @@
-package org.adamtheengineer.examples.helloworld;
+package com.adamvduke.examples.helloworld;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

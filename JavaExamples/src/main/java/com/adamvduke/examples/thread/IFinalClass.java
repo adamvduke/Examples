@@ -1,4 +1,4 @@
-package org.adamtheengineer.examples.thread;
+package com.adamvduke.examples.thread;
 
 public interface IFinalClass {
 

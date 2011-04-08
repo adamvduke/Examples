@@ -1,4 +1,4 @@
-package org.adamtheengineer.examples.thread;
+package com.adamvduke.examples.thread;
 
 import java.util.ArrayList;
 
@@ -19,11 +19,8 @@ public final class SafeFinalClassV1 implements IFinalClass {
 	private Long startTime = null;
 
 	/**
-	 * the object of the add method is to block a thread after it passes the
-	 * null check if there are other threads trying to call the add method they
-	 * will all block in the same place. The thread that wakes up first will set
-	 * the shared object to null, any subsequent calls to the shared object will
-	 * generate null pointer exceptions
+	 * The object of the doSomething method in this class is to fix the non-thread safe
+	 * version proposed in {@link UnsafeFinalClass}
 	 */
 	public synchronized void doSomething() {
 
@@ -32,9 +29,8 @@ public final class SafeFinalClassV1 implements IFinalClass {
 
 			try {
 				// sleep any incoming threads, if there are multiple threads
-				// calling this method
-				// the threads will stack up here after they have checked for
-				// null
+				// calling this method they will have to wait until the current
+				// thread exits the method to continue
 				Thread.sleep(2000);
 
 				// access the shared memory
@@ -51,12 +47,13 @@ public final class SafeFinalClassV1 implements IFinalClass {
 			}
 		}
 		try {
+			// simulate this method doing some other hard work after accessing
+			// the shared memory
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			throw new RuntimeException(
 					"Thread was interrupted in unsynchronized block", e);
 		}
-
 		System.out.println("Thread " + Thread.currentThread().getId()
 				+ " finished doing hard work from  "
 				+ this.getClass().getSimpleName() + "  "

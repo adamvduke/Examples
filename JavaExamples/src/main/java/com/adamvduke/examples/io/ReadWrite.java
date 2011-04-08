@@ -1,4 +1,4 @@
-package org.adamtheengineer.examples.io;
+package com.adamvduke.examples.io;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;

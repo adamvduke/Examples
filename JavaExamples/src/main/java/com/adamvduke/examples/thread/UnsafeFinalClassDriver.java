@@ -1,8 +1,8 @@
-package org.adamtheengineer.examples.thread;
+package com.adamvduke.examples.thread;
 
 public class UnsafeFinalClassDriver {
 
-	private static int threadCount = 500;
+	private static int threadCount = 5;
 	/**
 	 * @param args
 	 * @throws InterruptedException
