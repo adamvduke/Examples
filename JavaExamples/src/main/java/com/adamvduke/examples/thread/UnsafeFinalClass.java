@@ -19,10 +19,10 @@ public final class UnsafeFinalClass implements IFinalClass {
 	private Long startTime = null;
 
 	/**
-	 * the object of the add method is to block a thread after it passes the
-	 * null check if there are other threads trying to call the add method they
+	 * The object of the doSomething method is to block a thread after it passes the
+	 * null check. If there are other threads trying to call the doSomething method they
 	 * will all block in the same place. The thread that wakes up first will set
-	 * the shared object to null, any subsequent calls to the shared object will
+	 * the shared object to null. Any subsequent calls to the shared object will
 	 * generate null pointer exceptions
 	 */
 	public void doSomething() {
